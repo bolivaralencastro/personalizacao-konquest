@@ -1,0 +1,150 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Sessões Personalizadas</title>
+    <link href="https://fonts.googleapis.com/icon?family=Material+Icons|Material+Icons+Outlined|Material+Symbols+Outlined" rel="stylesheet">
+    <link rel="stylesheet" href="styles.css">
+</head>
+<body>
+
+    <div id="myCustomSidebarMenu">
+        <nav class="cs-main-nav">
+            <div class="cs-logo-container"> <span class="material-symbols-outlined cs-logo-icon">interests</span> </div>
+            <ul class="cs-nav-list cs-top-items">
+                <li> <a href="#" data-nav-id="conteudos"> <span class="material-symbols-outlined">book_2</span> <span>Conteúdos</span> </a> </li>
+                <li> <a href="#" data-nav-id="pulses"> <span class="material-symbols-outlined">target</span> <span>Pulses</span> </a> </li>
+                <li> <a href="#" data-nav-id="matriculas"> <span class="material-icons-outlined">school</span> <span>Matrículas</span> </a> </li>
+            </ul>
+            <ul class="cs-nav-list cs-bottom-nav-items">
+                <li class="cs-admin-item-wrapper"> <a href="#" id="cs-admin-toggle" class="cs-admin-toggle-link" aria-expanded="false" aria-controls="cs-admin-submenu-panel" data-nav-id="admin"> <span class="material-icons-outlined">settings</span> <span>Admin</span> </a> </li>
+                <li class="cs-support-item"> <a href="#" data-nav-id="suporte"> <span class="material-icons-outlined">help_outline</span> <span>Suporte</span> </a> </li>
+            </ul>
+        </nav>
+        <aside class="cs-submenu-panel" id="cs-admin-submenu-panel" aria-hidden="true">
+            <ul class="cs-submenu-list">
+                <li><a href="#" data-nav-id="configuracoes">Configurações</a></li> <li><a href="#" data-nav-id="normativas">Normativas</a></li> <li><a href="#" data-nav-id="grupos">Grupos</a></li> <li><a href="#" data-nav-id="categorias">Categorias</a></li> <li><a href="#" data-nav-id="integracoes">Integrações</a></li> <li><a href="#" data-nav-id="matriculas-admin">Matrículas</a></li> <li><a href="#" data-nav-id="log-atividades">Log de Atividades</a></li> <li><a href="#" data-nav-id="certificados">Certificados Personalizados</a></li> <li><a href="#" data-nav-id="marketplace">Marketplace</a></li> <li><a href="#" data-nav-id="sessoes-personalizadas">Sessões Personalizadas</a></li>
+            </ul>
+        </aside>
+    </div>
+
+    <div class="main-container">
+        <header id="myCustomTopBar">
+            <div class="ctb-left-section"> <button type="button" class="ctb-icon-button ctb-menu-toggle" aria-label="Abrir menu de navegação"> <span class="material-icons-outlined">menu</span> </button> <div class="ctb-search-bar"> <span class="material-icons-outlined">search</span> <input type="search" class="ctb-search-input" placeholder="O que você quer aprender hoje?"> </div> </div>
+            <div class="ctb-right-section"> <div class="ctb-action-icons"> <button type="button" class="ctb-icon-button" aria-label="Adicionar"> <span class="material-icons-outlined">add</span> </button> <button type="button" class="ctb-icon-button" aria-label="Tela cheia"> <span class="material-icons-outlined">fullscreen</span> </button> <button type="button" class="ctb-icon-button" aria-label="Notificações"> <span class="material-icons-outlined">notifications_none</span> </button> <button type="button" class="ctb-icon-button" aria-label="Painel"> <span class="material-icons-outlined">bar_chart</span> </button> <button type="button" class="ctb-icon-button" aria-label="Aplicativos"> <span class="material-icons-outlined">apps</span> </button> </div> <div class="ctb-user-profile" tabindex="0" role="button" aria-label="Conta e configurações"> <div class="ctb-avatar">NS</div> <div class="ctb-user-info"> <span class="ctb-user-name">Nome Sobrenome</span> <span class="ctb-user-workspace">Workspace</span> </div> </div> </div>
+        </header>
+        <main class="content-area">
+            <div class="page-header-container">
+                <div class="content-header">
+                    <h1>Sessões Personalizadas</h1>
+                    <div class="header-actions">
+                        <div class="create-session-dropdown-container">
+                            <button id="page-create-session-dropdown-btn" class="create-session-dropdown-btn">
+                                <span class="material-icons-outlined">add</span>Criar Sessão
+                            </button>
+                            <div id="create-session-options" class="create-session-dropdown-content"></div>
+                        </div>
+                        <button id="page-save-all-btn"><span class="material-icons-outlined">save</span>Salvar</button>
+                    </div>
+                </div>
+                <div class="module-tabs">
+                    <button class="module-tab active" data-module="destaques"><span class="material-symbols-outlined">star</span>Destaques</button>
+                    <button class="module-tab" data-module="trilhas"><span class="material-symbols-outlined">conversion_path</span>Trilhas</button>
+                    <button class="module-tab" data-module="cursos"><span class="material-symbols-outlined">rocket_launch</span>Cursos</button>
+                    <button class="module-tab" data-module="eventos" disabled><span class="material-symbols-outlined">calendar_month</span>Eventos</button>
+                </div>
+            </div>
+            <div id="sessions-list-container"></div>
+            <div class="empty-state-wrapper">
+                <div id="empty-state-sessions" class="empty-state" style="display: none;">
+                    <span class="material-symbols-outlined">widgets</span>
+                    <h2>Suas sessões de Destaques aparecerão aqui.</h2>
+                    <p>Agrupe conteúdos em sessões para facilitar o acesso e a navegação.<br><br>Comece criando uma sessão de destaques.</p>
+                    <div class="create-session-dropdown-container empty-state-create-btn header-actions">
+                        <button id="empty-state-create-session-dropdown-btn" class="create-session-dropdown-btn">
+                            <span class="material-icons-outlined">add</span>Criar Sessão
+                        </button>
+                        <div id="empty-state-create-session-options" class="create-session-dropdown-content" style="display: none;"><button data-session-type="manual_trail" class="dropdown-item"><span class="material-symbols-outlined">conversion_path</span> Trilha</button><button data-session-type="manual_course" class="dropdown-item"><span class="material-symbols-outlined">rocket_launch</span> Curso</button><button data-session-type="event" class="dropdown-item"><span class="material-symbols-outlined">calendar_month</span> Evento</button><button data-session-type="enrollment" class="dropdown-item"><span class="material-icons-outlined">school</span> Matrículas</button></div>
+                    </div>
+                </div>
+            </div>
+        </main>
+    </div>
+
+    <div id="schedule-popover" class="schedule-popover">
+        <div class="schedule-popover-content">
+            <div class="schedule-popover-header">
+                <h3>Definir Programação</h3>
+            </div>
+            <div class="schedule-popover-body">
+                <input type="hidden" id="schedule-popover-session-id">
+                <div class="form-group">
+                    <label for="popover-start-date">Data de Início</label>
+                    <input type="date" id="popover-start-date" class="form-control">
+                </div>
+                <div class="form-group">
+                    <label for="popover-end-date">Data de Término</label>
+                    <input type="date" id="popover-end-date" class="form-control">
+                </div>
+            </div>
+            <div class="schedule-popover-footer">
+                <button id="schedule-popover-clear" class="btn btn-secondary">Limpar</button>
+                <div class="btn-group">
+                    <button id="schedule-popover-cancel" class="btn btn-secondary">Cancelar</button>
+                    <button id="schedule-popover-save" class="btn btn-primary">Salvar</button>
+                </div>
+            </div>
+        </div>
+    </div>
+    <div id="content-selection-popover" class="content-popover">
+        <div class="popover-tabs">
+            <button class="popover-tab-btn active" data-tab="individual">Itens Individuais</button>
+            <button class="popover-tab-btn" data-tab="category">Por Categoria</button>
+        </div>
+        <div id="popover-individual-content" class="popover-tab-content active">
+            <div class="search-container">
+                <span class="material-icons">search</span>
+                <input type="search" id="content-popover-search-individual" placeholder="Procurar itens...">
+            </div>
+            <div id="content-popover-list-individual" class="content-popover-list"></div>
+        </div>
+        <div id="popover-category-content" class="popover-tab-content">
+            <div class="search-container">
+                <span class="material-icons">search</span>
+                <input type="search" id="content-popover-search-category" placeholder="Procurar categorias...">
+            </div>
+            <div id="content-popover-list-category" class="content-popover-list"></div>
+        </div>
+        <div class="content-popover-actions">
+            <button type="button" class="cancel-btn" id="content-popover-cancel">Cancelar</button>
+            <button type="button" class="save-btn" id="content-popover-confirm">Adicionar</button>
+        </div>
+    </div>
+    <div id="confirm-delete-modal" class="modal">
+        <div class="modal-content">
+            <div class="modal-header">
+                <h2>Confirmar Exclusão</h2>
+            </div>
+            <p>Você tem certeza que deseja excluir a sessão: <br><strong><span id="session-to-delete-name"></span></strong>?</p>
+            <div class="form-actions">
+                <button type="button" class="cancel-btn" data-modal-id="confirm-delete-modal">Cancelar</button>
+                <button type="button" id="confirm-delete-btn" class="save-btn" style="background-color: var(--danger-color-app);">Excluir</button>
+            </div>
+        </div>
+    </div>
+    <div id="toast-container"></div>
+
+    <!-- Popover de Seleção de Tipo de Matrícula (Novo) -->
+    <div id="enrollment-type-select-popover" class="popover" style="display: none;">
+        <div class="popover-options-list">
+            <button data-filter-value="all">Trilhas, Cursos e Eventos</button>
+            <button data-filter-value="trail">Trilhas</button>
+            <button data-filter-value="course">Cursos</button>
+            <button data-filter-value="event">Eventos</button>
+        </div>
+    </div>
+
+<script src="script.js"></script>
+</body>
+</html>

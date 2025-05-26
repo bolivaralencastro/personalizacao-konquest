@@ -1,0 +1,92 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Conteúdos</title>
+    <link href="https://fonts.googleapis.com/icon?family=Material+Icons|Material+Icons+Outlined|Material+Symbols+Outlined" rel="stylesheet">
+    <link rel="stylesheet" href="styles.css">
+    <!-- Link para o CSS específico da página de conteúdos -->
+    <link rel="stylesheet" href="conteudos.css">
+</head>
+<body class="page-conteudos">
+
+    <!-- Estrutura da Sidebar (mantida da index.html) -->
+    <div id="myCustomSidebarMenu">
+        <nav class="cs-main-nav">
+            <div class="cs-logo-container"> <span class="material-symbols-outlined cs-logo-icon">interests</span> </div>
+            <ul class="cs-nav-list cs-top-items">
+                <li> <a href="#" data-nav-id="conteudos"> <span class="material-symbols-outlined">book_2</span> <span>Conteúdos</span> </a> </li>
+                <li> <a href="#" data-nav-id="pulses"> <span class="material-symbols-outlined">target</span> <span>Pulses</span> </a> </li>
+                <li> <a href="#" data-nav-id="matriculas"> <span class="material-icons-outlined">school</span> <span>Matrículas</span> </a> </li>
+            </ul>
+            <ul class="cs-nav-list cs-bottom-nav-items">
+                <li class="cs-admin-item-wrapper"> <a href="#" id="cs-admin-toggle" class="cs-admin-toggle-link" aria-expanded="false" aria-controls="cs-admin-submenu-panel" data-nav-id="admin"> <span class="material-icons-outlined">settings</span> <span>Admin</span> </a> </li>
+                <li class="cs-support-item"> <a href="#" data-nav-id="suporte"> <span class="material-icons-outlined">help_outline</span> <span>Suporte</span> </a> </li>
+            </ul>
+        </nav>
+        <aside class="cs-submenu-panel" id="cs-admin-submenu-panel" aria-hidden="true">
+            <ul class="cs-submenu-list">
+                <li><a href="#" data-nav-id="configuracoes">Configurações</a></li> <li><a href="#" data-nav-id="normativas">Normativas</a></li> <li><a href="#" data-nav-id="grupos">Grupos</a></li> <li><a href="#" data-nav-id="categorias">Categorias</a></li> <li><a href="#" data-nav-id="integracoes">Integrações</a></li> <li><a href="#" data-nav-id="matriculas-admin">Matrículas</a></li> <li><a href="#" data-nav-id="log-atividades">Log de Atividades</a></li> <li><a href="#" data-nav-id="certificados">Certificados Personalizados</a></li> <li><a href="index.html" data-nav-id="sessoes-personalizadas">Sessões Personalizadas</a></li>
+            </ul>
+        </aside>
+    </div>
+
+    <!-- Container principal -->
+    <div class="main-container">
+        <!-- Top Bar (mantida da index.html) -->
+        <header id="myCustomTopBar">
+             <div class="ctb-left-section"> <button type="button" class="ctb-icon-button ctb-menu-toggle" aria-label="Abrir menu de navegação"> <span class="material-icons-outlined">menu</span> </button> <div class="ctb-search-bar"> <span class="material-icons-outlined">search</span> <input type="search" class="ctb-search-input" placeholder="O que você quer aprender hoje?"> </div> </div>
+            <div class="ctb-right-section"> <div class="ctb-action-icons"> <button type="button" class="ctb-icon-button" aria-label="Adicionar"> <span class="material-icons-outlined">add</span> </button> <button type="button" class="ctb-icon-button" aria-label="Tela cheia"> <span class="material-icons-outlined">fullscreen</span> </button> <button type="button" class="ctb-icon-button" aria-label="Notificações"> <span class="material-icons-outlined">notifications_none</span> </button> <button type="button" class="ctb-icon-button" aria-label="Painel"> <span class="material-icons-outlined">bar_chart</span> </button> <button type="button" class="ctb-icon-button" aria-label="Aplicativos"> <span class="material-icons-outlined">apps</span> </button> </div> <div class="ctb-user-profile" tabindex="0" role="button" aria-label="Conta e configurações"> <div class="ctb-avatar">NS</div> <div class="ctb-user-info"> <span class="ctb-user-name">Nome Sobrenome</span> <span class="ctb-user-workspace">Workspace</span> </div> </div> </div>
+        </header>
+
+        <!-- Área de conteúdo específica da página de Conteúdos -->
+        <div class="content-area">
+            <!-- Banner -->
+            <div class="conteudos-banner">
+                <div class="conteudos-banner-content">
+                    <h2>Excelência no Atendimento ao Cliente: Técnicas para Encantar e Fidelizar.</h2>
+                </div>
+            </div>
+
+            <!-- Chips de Navegação -->
+            <div class="conteudos-nav-chips">
+                <button class="chip active" data-filter="destaques"><span class="material-symbols-outlined">star</span>Destaques</button>
+                <button class="chip" data-filter="trilhas"><span class="material-symbols-outlined">conversion_path</span>Trilhas</button>
+                <button class="chip" data-filter="cursos"><span class="material-symbols-outlined">rocket_launch</span>Cursos</button>
+                <button class="chip" data-filter="eventos"><span class="material-symbols-outlined">calendar_month</span>Eventos</button>
+            </div>
+
+            <!-- Container para as Seções de Cursos Horizontais -->
+            <div class="conteudos-sections-container">
+                <!-- Exemplo de uma seção (será gerado pelo JS) -->
+                <div class="conteudo-section">
+                    <div class="conteudo-section-header">
+                        <div class="section-info">
+                            <h3>Título da Seção</h3>
+                            <p>Descrição curta da seção.</p>
+                        </div>
+                         <div class="section-actions">
+                            <a href="#" class="view-all-link">Ver tudo</a>
+                            <button class="nav-arrow-button"><span class="material-symbols-outlined">chevron_left</span></button>
+                            <button class="nav-arrow-button"><span class="material-symbols-outlined">chevron_right</span></button>
+                        </div>
+                    </div>
+                    <div class="horizontal-scroll-section">
+                        <!-- Cards de cursos com aspect ratio 9:16 viriam aqui -->
+                        <div class="course-card-placeholder">Card 1 (9:16)</div>
+                        <div class="course-card-placeholder">Card 2 (9:16)</div>
+                        <div class="course-card-placeholder">Card 3 (9:16)</div>
+                         </div>
+                </div>
+                <!-- Outras seções serão adicionadas aqui pelo JavaScript -->
+            </div>
+        </div>
+    </div>
+
+    <!-- Script principal (mantido da index.html) -->
+    <script src="script.js"></script>
+    <!-- Script específico da página de conteúdos -->
+    <script src="conteudos.js"></script>
+</body>
+</html> 

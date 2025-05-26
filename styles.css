@@ -1,0 +1,1557 @@
+/* Variáveis de cores principais */
+:root {
+    /* Cores primárias */
+    --primary-color-app: #875DAB;
+    --primary-color-dark-app: #7A529A; /* Um tom mais escuro de #875DAB */
+    --danger-color-app: #f44336;
+
+    /* Cores de fundo */
+    --light-gray-app: #f0f2f5;
+    --medium-gray-app: #e0e0e0;
+    --dark-gray-app: #777;
+    --card-bg-app: #fff;
+    --hover-bg-light: #f0e6ff;
+    --hover-bg-medium: #f1f1f1;
+    --hover-bg-dark: #e0c6f0;
+    --toast-bg: #333;
+
+    /* Cores de texto */
+    --text-color-app: #333;
+    --text-color-light: #ffffff;
+    --text-color-medium: #555;
+
+    /* Tamanhos de fonte */
+    --font-size-xs: 0.85em;
+    --font-size-sm: 0.9em;
+    --font-size-md: 0.95em;
+    --font-size-lg: 1.2em;
+    --font-size-xl: 1.3em;
+    --font-size-xxl: 1.4em;
+    --font-size-xxxl: 1.5em;
+    --font-size-display: 1.8em;
+
+    /* Espaçamento (Múltiplos de 8) */
+    --spacing-xxs: 4px;
+    --spacing-xs: 8px;
+    --spacing-sm: 12px;
+    --spacing-md: 16px;
+    --spacing-lg: 20px;
+    --spacing-xl: 24px;
+    --spacing-xxl: 32px;
+    --spacing-xxxl: 40px;
+
+    /* Tamanhos (Múltiplos de 8) */
+    --size-icon-sm: 20px; /* Ajustado para próximo múltiplo de 8 */
+    --size-icon-md: 24px;
+    --size-icon-lg: 28px;
+    --size-icon-xl: 32px; /* Para ícone grande do estado vazio */
+    --size-logo-icon: 40px; /* Ajustado para próximo múltiplo de 8 */
+    --size-avatar: 32px;
+
+    /* Layout */
+    --layout-sidebar-width: 112px;
+    --layout-submenu-width: 280px;
+    --layout-topbar-height: 64px;
+
+    /* Bordas e Raios */
+    --border-width-sm: 1px;
+    --border-width-md: 2px;
+    --border-radius-sm: 4px;
+    --border-radius-md: 8px;
+    --border-radius-lg: 16px;
+    --border-radius-circle: 50%;
+    --border-radius-pill: 24px; /* Aproximado para a busca */
+    --border-color-default: #e0e0e0; /* Usando medium-gray-app */
+    --border-color-light: #e5e7eb; /* Usando cor existente */
+
+    /* Sombras */
+    --shadow-sm: 0 1px 2px 0 rgba(60, 64, 67, 0.1), 0 2px 6px 2px rgba(60, 64, 67, 0.08);
+    --shadow-md: 0 3px 10px rgba(0, 0, 0, 0.07);
+    --shadow-lg: 0 5px 20px rgba(0, 0, 0, 0.2);
+    --shadow-popover: 0 4px 15px rgba(0, 0, 0, 0.15);
+
+    /*TopBar*/
+    --ctb-search-bg-color: #f0f2f5;
+
+    /*Avatar*/
+    --ctb-avatar-bg-color: #f0f2f5;
+    --size-avatar: 40px;
+
+    /* Sidebar Component Specific */
+    --cs-hover-bg: rgba(255, 255, 255, 0.1);
+    /* Ex: rgba(255, 255, 255, 0.1) para branco transparente */
+    --cs-active-submenu-bg: rgba(255, 255, 255, 0.15); /* Cor para item ativo no submenu */
+    --cs-hover-border-color: rgba(255, 255, 255, 0.2); /* Cor da borda no hover, branco um pouco mais opaco */
+
+    /* Tokens para cores e espaçamentos */
+    --avatar-bg-color: #EADDFF;
+}
+
+/* Estilos base */
+body {
+    font-family: 'Roboto', Arial, sans-serif;
+    margin: 0;
+    color: var(--text-color-app);
+    display: flex;
+    height: 100vh;
+    overflow: hidden;
+    background-color: var(--light-gray-app);
+}
+
+/* Ícones do Material Design */
+.material-icons,
+.material-icons-outlined,
+.material-symbols-outlined {
+    vertical-align: middle;
+    line-height: 1;
+    user-select: none;
+}
+
+/* Sidebar Menu */
+#myCustomSidebarMenu {
+    display: flex;
+    height: 100vh;
+    font-family: Arial, sans-serif;
+    position: fixed;
+    top: 0;
+    left: 0;
+    flex-shrink: 0;
+    background-color: var(--primary-color-app); /* Usando token primário */
+    z-index: 200;
+}
+
+#myCustomSidebarMenu *,
+#myCustomSidebarMenu *::before,
+#myCustomSidebarMenu *::after {
+    box-sizing: border-box;
+}
+
+/* Navegação principal */
+#myCustomSidebarMenu .cs-main-nav {
+    width: var(--layout-sidebar-width);
+    color: var(--text-color-light); /* Usando token de texto claro */
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    padding-top: calc(var(--layout-topbar-height) + var(--spacing-xxl)); /* Usando token */
+    padding-bottom: var(--spacing-xxl); /* Usando token */
+    position: relative;
+    z-index: 20;
+    flex-shrink: 0;
+    height: 100%;
+}
+
+/* Container do logo */
+#myCustomSidebarMenu .cs-logo-container {
+    margin-bottom: var(--spacing-xxxl); /* Usando token */
+    color: var(--text-color-light); /* Usando token de texto claro */
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: var(--layout-topbar-height);
+}
+
+#myCustomSidebarMenu .cs-logo-container .cs-logo-icon {
+    font-size: var(--size-logo-icon);
+    color: var(--text-color-light); /* Usando token de texto claro */
+}
+
+/* Lista de navegação */
+#myCustomSidebarMenu .cs-nav-list {
+    list-style: none;
+    padding-left: 0;
+    margin: 0;
+    width: 100%;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    gap: 2px; /* Espaçamento de 2px entre os botões */
+}
+
+#myCustomSidebarMenu .cs-nav-list.cs-top-items {
+    flex-grow: 1;
+}
+
+#myCustomSidebarMenu .cs-nav-list li {
+    width: 100%;
+}
+
+#myCustomSidebarMenu .cs-nav-list li a {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    padding: var(--spacing-sm) var(--spacing-xs);
+    text-decoration: none;
+    color: var(--text-color-light);
+    font-size: var(--font-size-xs);
+    text-align: center;
+    transition: background-color 0.2s ease-in-out;
+    height: 80px;
+    width: 96px;
+    margin: 0 auto; /* Centralizar o botão de 96px de largura no estado normal */
+}
+
+#myCustomSidebarMenu .cs-nav-list li a .material-icons-outlined,
+#myCustomSidebarMenu .cs-nav-list li a .material-symbols-outlined {
+    font-size: var(--size-icon-lg);
+    margin-bottom: var(--spacing-xs); /* Usando token */
+    line-height: 1;
+}
+
+#myCustomSidebarMenu .cs-nav-list li a:hover {
+    background-color: var(--cs-hover-bg); /* Cor específica do componente */
+    width: 96px;
+    margin: 0 auto; /* Centralizar o botão de 96px de largura */
+    border-radius: var(--border-radius-sm);
+    border: var(--border-width-sm) solid var(--cs-hover-border-color);
+}
+
+/* Itens de navegação inferiores */
+#myCustomSidebarMenu .cs-bottom-nav-items {
+    margin-top: auto;
+    width: 100%;
+    padding-left: 0;
+    list-style: none;
+}
+
+/* Painel do submenu */
+#myCustomSidebarMenu .cs-submenu-panel {
+    position: fixed;
+    left: var(--layout-sidebar-width);
+    top: 0;
+    height: 100vh;
+    width: 0;
+    background-color: var(--primary-color-app); /* Usando token primário */
+    color: var(--text-color-light); /* Usando token de texto claro */
+    padding: 0;
+    overflow-x: hidden;
+    overflow-y: auto;
+    transition: none;
+    z-index: 9999;
+    display: flex;
+    flex-direction: column;
+    box-shadow: var(--shadow-sm);
+}
+
+#myCustomSidebarMenu .cs-submenu-panel.cs-open {
+    width: var(--layout-submenu-width);
+    padding: var(--spacing-xxl) var(--spacing-sm); /* Usando token */
+    transition: none;
+}
+
+/* Lista do submenu */
+#myCustomSidebarMenu .cs-submenu-list {
+    list-style: none;
+    padding-left: 0;
+    margin: 0;
+}
+
+#myCustomSidebarMenu .cs-submenu-list li a {
+    display: block;
+    padding: var(--spacing-sm) var(--spacing-sm);
+    text-decoration: none;
+    color: var(--text-color-light);
+    border-radius: var(--border-radius-sm);
+    margin-bottom: var(--spacing-xxs);
+    font-size: var(--font-size-md);
+    transition: background-color 0.2s ease-in-out;
+    white-space: nowrap;
+}
+
+#myCustomSidebarMenu .cs-submenu-list li a:hover {
+    background-color: var(--cs-hover-bg); /* Cor específica do componente */
+}
+
+#myCustomSidebarMenu .cs-submenu-list li.cs-active-submenu-item a {
+    background-color: var(--cs-active-submenu-bg); /* Cor específica do componente */
+}
+
+/* Top Bar */
+#myCustomTopBar {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    padding: 0 var(--spacing-md); /* Usando token */
+    background-color: var(--card-bg-app); /* Usando token de fundo de card (branco) */
+    box-shadow: var(--shadow-sm);
+    height: var(--layout-topbar-height);
+    font-family: 'Roboto', Arial, sans-serif;
+    color: var(--ctb-text-color); /* Cor específica do componente */
+    position: fixed;
+    top: 0;
+    left: var(--layout-sidebar-width);
+    right: 0;
+    z-index: 100;
+}
+
+/* Seção esquerda da Top Bar */
+#myCustomTopBar .ctb-left-section {
+    display: flex;
+    align-items: center;
+    gap: var(--spacing-md); /* Usando token */
+    flex-grow: 1;
+    min-width: 0;
+}
+
+/* Botões de ícone */
+#myCustomTopBar .ctb-icon-button {
+    background-color: transparent;
+    border: none;
+    padding: var(--spacing-xs); /* 8px, múltiplo de 8 */
+    cursor: pointer;
+    border-radius: var(--border-radius-circle);
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    color: var(--ctb-icon-color); /* Cor específica do componente */
+    transition: background-color 0.2s ease;
+    flex-shrink: 0;
+}
+
+#myCustomTopBar .ctb-icon-button:hover {
+    background-color: var(--ctb-icon-button-hover-bg); /* Cor específica do componente */
+}
+
+#myCustomTopBar .ctb-icon-button .material-icons-outlined {
+    font-size: var(--size-icon-md);
+}
+
+/* Barra de pesquisa */
+#myCustomTopBar .ctb-search-bar {
+    display: flex;
+    align-items: center;
+    background-color: var(--ctb-search-bg-color); /* Cor específica do componente */
+    border-radius: var(--border-radius-pill);
+    padding: 0 var(--spacing-md); /* Usando token */
+    height: 48px; /* Manter height fixo */
+    flex-grow: 1;
+    min-width: 150px;
+}
+
+#myCustomTopBar .ctb-search-bar .material-icons-outlined {
+    font-size: var(--size-icon-md);
+    color: var(--ctb-icon-color); /* Cor específica do componente */
+    margin-right: var(--spacing-sm); /* Usando token */
+    flex-shrink: 0;
+}
+
+#myCustomTopBar .ctb-search-input {
+    border: none;
+    background-color: transparent;
+    outline: none;
+    font-size: var(--spacing-md); /* Usando token */
+    color: var(--ctb-text-color); /* Cor específica do componente */
+    width: 100%;
+    height: 100%;
+}
+
+#myCustomTopBar .ctb-search-input::placeholder {
+    color: var(--ctb-placeholder-color); /* Cor específica do componente */
+    opacity: 1;
+}
+
+/* Seção direita da Top Bar */
+#myCustomTopBar .ctb-right-section {
+    display: flex;
+    align-items: center;
+    gap: 0px; /* Manter gap 0 */
+    flex-shrink: 0;
+    margin-left: var(--spacing-md); /* Usando token */
+}
+
+/* Ícones de ação */
+#myCustomTopBar .ctb-action-icons {
+    display: flex;
+    align-items: center;
+}
+
+#myCustomTopBar .ctb-action-icons .ctb-icon-button {
+    padding: 7px; /* Manter 7px, próximo de 8px */
+}
+
+#myCustomTopBar .ctb-action-icons .ctb-icon-button .material-icons-outlined {
+    font-size: var(--size-icon-sm);
+}
+
+/* Perfil do usuário */
+#myCustomTopBar .ctb-user-profile {
+    display: flex;
+    align-items: center;
+    gap: 8px; /* Gap entre o avatar e as informações do usuário */
+    padding: var(--spacing-xs) var(--spacing-sm);
+    border-radius: var(--border-radius-md);
+    cursor: pointer;
+    transition: background-color 0.2s ease;
+}
+
+#myCustomTopBar .ctb-user-profile:hover {
+    /* background-color: var(--hover-bg-light); */ /* Removido efeito de hover */
+}
+
+#myCustomTopBar .ctb-avatar {
+    width: 40px;
+    height: 40px;
+    border-radius: 50%;
+    background-color: var(--avatar-bg-color);
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    font-size: 16px;
+    color: var(--text-color-app);
+    font-weight: 500;
+}
+
+#myCustomTopBar .ctb-user-info {
+    display: flex;
+    flex-direction: column;
+    gap: 4px; /* Gap entre o nome e a workspace */
+}
+
+#myCustomTopBar .ctb-user-name {
+    font-size: 14px;
+    color: var(--text-color-app);
+    font-weight: 500;
+}
+
+#myCustomTopBar .ctb-user-workspace {
+    font-size: 10px;
+    color: var(--text-color-medium);
+}
+
+/* Media Queries */
+@media (max-width: 768px) {
+    #myCustomTopBar .ctb-user-info {
+        display: none;
+    }
+}
+
+@media (max-width: 600px) {
+    #myCustomTopBar .ctb-search-input::placeholder {
+        font-size: var(--spacing-md); /* Usando token */
+    }
+    
+    #myCustomTopBar .ctb-action-icons .ctb-icon-button:nth-child(1),
+    #myCustomTopBar .ctb-action-icons .ctb-icon-button:nth-child(4) {
+        display: none;
+    }
+    
+    #myCustomTopBar .ctb-left-section {
+        gap: var(--spacing-xs); /* Usando token */
+    }
+    
+    #myCustomTopBar .ctb-right-section {
+        margin-left: var(--spacing-xs); /* Usando token */
+    }
+    
+    #myCustomTopBar {
+        padding: 0 var(--spacing-xs); /* Usando token */
+    }
+}
+
+@media (max-width: 450px) {
+    #myCustomTopBar .ctb-search-input {
+        font-size: var(--spacing-md); /* Usando token */
+    }
+    
+    #myCustomTopBar .ctb-action-icons .ctb-icon-button:nth-child(2),
+    #myCustomTopBar .ctb-action-icons .ctb-icon-button:nth-child(5) {
+        display: none;
+    }
+}
+
+/* Container principal */
+.main-container {
+    flex-grow: 1;
+    display: flex;
+    flex-direction: column;
+    overflow: hidden;
+    margin-left: var(--layout-sidebar-width);
+    padding-top: var(--layout-topbar-height);
+    width: calc(100% - var(--layout-sidebar-width));
+    background-color: var(--light-gray-app);
+}
+
+/* Área de conteúdo */
+.content-area {
+    flex-grow: 1;
+    padding: 0;
+    overflow-y: auto;
+    display: flex;
+    flex-direction: column;
+}
+
+/* Container para o cabeçalho da página de Sessões Personalizadas */
+.page-header-container {
+    background-color: var(--card-bg-app);
+    border-bottom: var(--border-width-sm) solid var(--border-color-light);
+    width: 100%;
+    padding: var(--spacing-xl) var(--spacing-xxl) 0 var(--spacing-xxl);
+    box-sizing: border-box;
+    z-index: 50;
+    /* Espaço entre o cabeçalho e o conteúdo */
+}
+
+/* Cabeçalho do conteúdo */
+.content-header {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    margin-bottom: var(--spacing-xl); /* Usando token */
+}
+
+.content-header h1 {
+    font-size: 1.8em; /* Manter tamanhos de fonte relativos onde apropriado */
+    margin: 0;
+    color: var(--text-color-app);
+    font-weight: 500;
+}
+
+/* Ações do cabeçalho */
+.header-actions {
+    display: flex;
+    align-items: center;
+    gap: var(--spacing-xxs); /* Usando token */
+}
+
+.create-session-dropdown-container {
+    position: relative;
+}
+
+.header-actions .create-session-dropdown-btn,
+.header-actions #page-save-all-btn {
+    padding: var(--spacing-xxs) var(--spacing-md); /* Ajustado padding vertical */
+    border-radius: var(--border-radius-pill); /* Ajustado para formato arredondado */
+    cursor: pointer;
+    font-size: var(--font-size-md);
+    font-weight: 500;
+    border: var(--border-width-sm) solid transparent;
+    display: inline-flex;
+    align-items: center;
+    gap: var(--spacing-xs); /* Usando token */
+    /* Definir altura fixa para botões de componente */
+    height: 40px; /* Alterado para 40px */
+}
+
+.create-session-dropdown-btn {
+    background-color: transparent;
+    color: var(--primary-color-app);
+    border-color: var(--primary-color-app);
+    cursor: pointer;
+    transition: background-color 0.2s ease;
+    border: var(--border-width-sm) solid var(--primary-color-app);
+    border-radius: var(--border-radius-pill);
+    padding: var(--spacing-xxs) var(--spacing-md); /* Ajustado padding vertical */
+    font-size: var(--font-size-md);
+    font-weight: 500;
+    display: inline-flex;
+    align-items: center;
+    gap: var(--spacing-xs);
+    /* Definir altura fixa para botões de componente */
+    height: 40px; /* Alterado para 40px */
+}
+
+.create-session-dropdown-btn:hover {
+    /* background-color: var(--hover-bg-light); */ /* Removido para não ter fundo no hover */
+    color: var(--primary-color-app);
+}
+
+.create-session-dropdown-btn:active {
+    background-color: var(--hover-bg-medium);
+    transform: translateY(1px);
+}
+
+.create-session-dropdown-btn .material-icons-outlined {
+    font-size: var(--font-size-lg);
+}
+
+/* Conteúdo do dropdown */
+.create-session-dropdown-content {
+    display: none;
+    position: absolute;
+    background-color: var(--card-bg-app);
+    min-width: 220px;
+    box-shadow: var(--shadow-md);
+    z-index: 1050;
+    border-radius: var(--border-radius-md);
+    right: 0;
+    margin-top: var(--spacing-xxs);
+    overflow: hidden;
+}
+
+.create-session-dropdown-content button {
+    color: var(--text-color-app);
+    padding: var(--spacing-sm) var(--spacing-md); /* Padding: 12px vertical, 16px horizontal */
+    text-decoration: none;
+    display: flex;
+    align-items: center; /* Centralizar verticalmente o conteúdo */
+    gap: var(--spacing-xs); /* Espaçamento entre ícone e texto (8px) */
+    width: 100%;
+    border: none;
+    background: none;
+    text-align: left;
+    font-size: var(--font-size-sm);
+    transition: background-color 0.2s ease;
+    line-height: 1.5; /* Definir uma altura de linha consistente para ajudar no alinhamento vertical */
+    /* Definir altura mínima para itens do dropdown */
+    min-height: 40px; /* Alterado para 40px */
+}
+
+.create-session-dropdown-content button:hover {
+    background-color: var(--hover-bg-medium);
+}
+
+/* Regra para o contêiner do ícone (span) */
+.create-session-dropdown-content button .material-symbols-outlined,
+.create-session-dropdown-content button .material-icons-outlined {
+    width: 18px;
+    height: 18px;
+    display: flex;
+    align-items: center; /* Centralizar o glifo do ícone dentro do contêiner */
+    justify-content: center;
+    font-size: 16px; /* Tamanho do glifo */
+    color: var(--primary-color-app);
+    flex-shrink: 0;
+    /* Remover vertical-align pois flexbox alignment é preferível */
+    /* vertical-align: middle; */
+}
+
+/* Botão salvar tudo */
+#page-save-all-btn {
+    background-color: var(--primary-color-app);
+    color: #fff;
+    border-radius: var(--border-radius-pill); /* Ajustado para formato arredondado */
+    /* Definir altura fixa para botões de componente */
+    height: 40px; /* Alterado para 40px */
+}
+
+#page-save-all-btn:hover {
+    background-color: var(--primary-color-dark-app);
+}
+
+#page-save-all-btn .material-icons-outlined {
+    font-size: var(--font-size-lg);
+}
+
+/* Abas do módulo */
+.module-tabs {
+    margin-bottom: 0;
+    border-bottom: none;
+    display: flex;
+    gap: var(--spacing-xxs);
+}
+
+.module-tabs button {
+    padding: var(--spacing-xxs) var(--spacing-md); /* Ajustado padding vertical */
+    cursor: pointer;
+    border: none;
+    background-color: transparent;
+    font-size: var(--spacing-md);
+    color: var(--dark-gray-app);
+    position: relative;
+    border-bottom: var(--border-width-md) solid transparent;
+    display: inline-flex;
+    align-items: center;
+    gap: var(--spacing-xs);
+    font-weight: 500;
+    /* Definir altura fixa para botões de abas */
+    height: 40px; /* Alterado para 40px */
+}
+
+.module-tabs button.active {
+    border-bottom-color: var(--primary-color-app);
+    color: var(--primary-color-app);
+}
+
+.module-tabs button .material-symbols-outlined {
+    font-size: var(--font-size-xl);
+}
+
+/* Estilo para aba desativada */
+.module-tabs button.disabled-tab {
+    opacity: 0.6;
+    cursor: not-allowed;
+    pointer-events: none;
+}
+
+.module-tabs button.disabled-tab:hover {
+    background-color: transparent;
+    color: var(--dark-gray-app);
+    border-bottom-color: transparent;
+}
+
+/* Card da sessão */
+.session-card {
+    background-color: var(--card-bg-app);
+    padding: var(--spacing-xl); /* Usando token */
+    border-radius: var(--border-radius-md);
+    box-shadow: var(--shadow-md);
+    margin-bottom: var(--spacing-xl); /* Usando token */
+    cursor: default;
+}
+
+.session-card-header {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    margin-bottom: var(--spacing-sm); /* Usando token */
+    gap: var(--spacing-xl); /* Usando token */
+}
+
+.session-card-title-section {
+    display: flex;
+    align-items: center;
+    gap: var(--spacing-sm); /* Usando token */
+    flex-grow: 1;
+}
+
+.session-card-title-section .type-icon {
+    font-size: 1.8em; /* Manter tamanhos de fonte relativos onde apropriado */
+    color: var(--primary-color-app);
+    display: flex;
+    align-items: center;
+}
+
+.session-card-title-section .text-content {
+    flex-grow: 1;
+    display: flex;
+    flex-direction: column;
+    gap: 0;
+}
+
+.session-card-title-section .editable-text {
+    padding: var(--spacing-xxs); /* Usando token */
+    border: var(--border-width-sm) dashed transparent;
+    cursor: text;
+    min-width: 100px; /* Manter width fixo */
+    line-height: 1.3;
+    margin: 0;
+}
+
+.session-card-title-section .editable-text:hover {
+    border-color: var(--medium-gray-app);
+}
+
+.session-card-title-section .editable-text[contenteditable=true] {
+    border: var(--border-width-sm) solid var(--primary-color-app);
+    background-color: var(--card-bg-app);
+    outline: none;
+    box-shadow: 0 0 0 var(--border-width-md) rgba(106, 13, 173, 0.2); /* Usando token de borda */
+}
+
+.session-card-title-section h3.editable-text {
+    font-size: var(--font-size-xxl);
+    font-weight: 600;
+}
+
+.session-card-description.editable-text {
+    font-size: var(--font-size-md);
+    color: var(--text-color-medium);
+    line-height: 1.5;
+}
+
+/* Ações do card */
+.session-card-actions {
+    display: flex;
+    align-items: center;
+    gap: var(--spacing-xxs); /* Espaçamento entre botões de ação */
+}
+
+/* Estilos base para os botões de ícone */
+.session-card-actions button {
+    background: none;
+    border: none;
+    cursor: pointer;
+    color: var(--dark-gray-app);
+    padding: 0; /* Remover padding do botão para que os divs controlem o tamanho */
+    display: flex;
+    align-items: center;
+    justify-content: center; /* Centralizar o conteúdo (contêineres aninhados) */
+    border-radius: var(--border-radius-circle); /* Aplicar border-radius ao botão se necessário para interações */
+    transition: background-color 0.2s ease;
+    /* A altura fixa de 40px será controlada pelo contêiner aninhado */
+}
+
+/* Contêiner principal 40x40px (anteriormente 48x48px) */
+.icon-button-container-48 {
+    width: 40px; /* Alterado para 40px */
+    height: 40px; /* Alterado para 40px */
+    display: flex;
+    align-items: center; /* Centralizar o contêiner interno */
+    justify-content: center;
+}
+
+/* Contêiner 32x32px com efeito de hover (anteriormente 40x40px) */
+.icon-button-container-40 {
+    width: 32px; /* Alterado para 32px */
+    height: 32px; /* Alterado para 32px */
+    display: flex;
+    align-items: center; /* Centralizar o contêiner de 24x24px */
+    justify-content: center;
+    border-radius: var(--border-radius-circle); /* Tornar redondo */
+    transition: background-color 0.2s ease;
+}
+
+/* Hover na área de 40x40px */
+.session-card-actions button:hover .icon-button-container-40 {
+    background-color: var(--hover-bg-medium); /* Fundo sutil no hover */
+}
+
+/* Contêiner 24x24px */
+.icon-container-24 {
+    width: 24px;
+    height: 24px;
+    display: flex;
+    align-items: center; /* Centralizar o ícone de 20px */
+    justify-content: center;
+}
+
+/* Ícone dentro do contêiner de 24x24px */
+.icon-container-24 .material-icons-outlined,
+.icon-container-24 .material-symbols-outlined {
+    font-size: 20px; /* Tamanho máximo do ícone */
+    color: var(--dark-gray-app); /* Cor padrão do ícone */
+    transition: color 0.2s ease;
+}
+
+/* Cor do ícone de exclusão no hover */
+.delete-session-btn:hover .icon-container-24 .material-icons-outlined,
+.delete-session-btn:hover .icon-container-24 .material-symbols-outlined {
+    color: var(--danger-color-app); /* Cor de perigo no hover */
+}
+
+/* Status do card */
+.session-card-status {
+    font-size: var(--font-size-sm);
+    color: var(--dark-gray-app);
+    display: inline-flex;
+    align-items: center;
+    gap: var(--spacing-xxs);
+    cursor: pointer;
+    padding: var(--spacing-xxs) var(--spacing-xs);
+    border-radius: var(--border-radius-md);
+    transition: background-color 0.2s ease;
+    border: var(--border-width-sm) solid transparent;
+    white-space: nowrap;
+    margin: 0;
+}
+
+.session-card-status:hover {
+    background-color: var(--hover-bg-light);
+}
+
+.session-card-status.editing {
+    background-color: var(--hover-bg-dark);
+    border-color: var(--primary-color-app);
+}
+
+.session-card-status .material-icons-outlined {
+    font-size: var(--font-size-lg);
+}
+
+/* Área de conteúdo da sessão */
+.session-content-area {
+    background-color: transparent;
+    padding: var(--spacing-xl) 0 0 0; /* Padding: 32px topo, 0 direita, 0 base, 0 esquerda */
+    border-radius: 0;
+    border: none;
+    border-top: var(--border-width-sm) solid var(--border-color-light);
+}
+
+/* Estilos para o texto explicativo dentro das sessões de Matrícula e Todos */
+.session-content-area p {
+    font-size: var(--font-size-sm);
+    /* Usar tamanho de fonte pequeno */
+    color: var(--text-color-medium);
+    /* Cor de texto médio, se aplicável */
+    text-align: center;
+    /* Centralizar o texto horizontalmente */
+    margin: var(--spacing-sm) 0; /* Adicionar um pouco de margem vertical para espaçamento */
+}
+
+/* Tags de conteúdo */
+.content-tags-container {
+    display: flex;
+    flex-wrap: wrap;
+    gap: var(--spacing-xs); /* Usando token */
+    align-items: center;
+}
+
+.content-tag {
+    /* Estilos de chip Material Design 3 */
+    background-color: var(--light-gray-app); /* Fundo suave */
+    color: var(--text-color-app);
+    padding: var(--spacing-xxs) var(--spacing-sm); /* Padding: 4px vertical, 12px horizontal */
+    border-radius: var(--border-radius-sm); /* Formato com raio de 4px */
+    font-size: var(--font-size-sm); /* Tamanho da fonte menor */
+    display: inline-flex; /* Usar flexbox para alinhar conteúdo */
+    align-items: center;
+    gap: var(--spacing-xxs); /* Espaçamento entre elementos internos (ícone, texto, fechar) */
+    cursor: grab; /* Manter cursor de arrastar */
+    border: var(--border-width-sm) solid var(--border-color-light); /* Borda sutil */
+    transition: background-color 0.2s ease, box-shadow 0.2s ease, opacity 0.3s ease, transform 0.3s ease;
+}
+
+.content-tag.dragging {
+    opacity: 0.6;
+    transform: scale(1.05);
+    box-shadow: var(--drag-over-shadow); /* Manter sombra de arrasto */
+    background-color: var(--drag-over-bg); /* Manter fundo de arrasto */
+    border: var(--drag-over-border); /* Manter borda de arrasto */
+    cursor: grabbing;
+}
+
+/* Estilo para o ícone dentro do chip */
+.content-tag .material-icons-outlined,
+.content-tag .material-symbols-outlined {
+    font-size: var(--font-size-lg); /* Tamanho do ícone */
+    color: var(--primary-color-app); /* Cor do ícone */
+}
+
+/* Estilo para o botão de fechar dentro do chip */
+.content-tag .remove-tag-btn {
+    cursor: pointer;
+    font-weight: 700;
+    color: var(--dark-gray-app); /* Cor padrão do ícone de fechar */
+    margin-left: var(--spacing-xxs); /* Pequeno espaçamento à esquerda do X */
+    padding: 0; /* Remover padding padrão do botão se houver */
+    background: none; /* Remover fundo */
+    border: none; /* Remover borda */
+    display: flex; /* Usar flex para centralizar ícone se necessário */
+    align-items: center;
+    justify-content: center;
+    border-radius: var(--border-radius-circle); /* Botão redondo no hover */
+    transition: background-color 0.2s ease, color 0.2s ease;
+}
+
+.content-tag .remove-tag-btn .material-icons-outlined,
+.content-tag .remove-tag-btn .material-symbols-outlined {
+     font-size: var(--size-icon-sm); /* Tamanho menor para o ícone de fechar */
+     color: var(--dark-gray-app); /* Cor padrão */
+     transition: color 0.2s ease;
+}
+
+.content-tag .remove-tag-btn:hover .material-icons-outlined,
+.content-tag .remove-tag-btn:hover .material-symbols-outlined {
+    color: var(--danger-color-app); /* Cor de perigo no hover */
+}
+
+.content-tag .remove-tag-btn:hover {
+    background-color: var(--hover-bg-medium); /* Fundo sutil no hover */
+}
+
+.content-tags-container .add-content-btn {
+    /* Herdar estilos do botão Criar Sessão */
+    background-color: transparent; /* Já é transparente */
+    color: var(--primary-color-app); /* Cor do texto primária */
+    /* Remover borda */
+    border: none; /* Já sem borda */
+    padding: 0 var(--spacing-md); /* Garantir que o padding vertical seja zero */
+    border-radius: var(--border-radius-pill);
+    font-size: var(--font-size-md);
+    font-weight: 500;
+    display: inline-flex;
+    align-items: center;
+    gap: var(--spacing-xs);
+    height: 40px; /* Definir altura explícita para 40px */
+    cursor: pointer; /* Garantir que o cursor seja pointer */
+    /* Remover transição para border-color */
+    transition: background-color 0.2s ease, color 0.2s ease;
+}
+
+.content-tags-container .add-content-btn:hover {
+    background-color: transparent; /* Garantir que não tenha fundo no hover */
+    color: var(--primary-color-app); /* Manter cor primária no hover */
+    /* Remover regra de border-color no hover */
+    border-color: transparent; /* Garantir borda transparente no hover */
+    text-decoration: none;
+}
+
+.content-tags-container .add-content-btn .material-icons-outlined {
+    font-size: var(--font-size-lg);
+}
+
+/* Modal */
+.modal {
+    display: none;
+    position: fixed;
+    z-index: 1000;
+    left: 0;
+    top: 0;
+    width: 100%;
+    height: 100%;
+    overflow: auto;
+    background-color: rgba(0, 0, 0, 0.6);
+    align-items: center;
+    justify-content: center;
+    backdrop-filter: blur(3px); /* Efeito visual, manter valor */
+}
+
+.modal-content {
+    background-color: var(--card-bg-app);
+    margin: auto;
+    padding: var(--spacing-xxl); /* Usando token */
+    border-radius: var(--border-radius-lg); /* Ajustado para usar o token de 16px (1rem) */
+    width: 90%;
+    max-width: 400px; /* Manter width fixo */
+    box-shadow: var(--shadow-lg);
+    position: relative;
+}
+
+.modal-header {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    margin-bottom: var(--spacing-xl); /* Usando token */
+}
+
+.modal-header h2 {
+    margin: 0;
+    font-size: var(--font-size-xxl);
+    color: var(--primary-color-app);
+    font-weight: 600;
+}
+
+.modal-header .close-btn .material-icons {
+    font-size: var(--font-size-xxxl);
+}
+
+/* Ações do formulário */
+.form-actions {
+    text-align: right;
+    margin-top: var(--spacing-xxl); /* Usando token */
+}
+
+.form-actions button {
+    padding: 0 var(--spacing-xl); /* Remover padding vertical */
+    border-radius: var(--border-radius-pill); /* Mantendo o token para bordas redondas */
+    cursor: pointer;
+    border: none;
+    font-size: var(--font-size-md);
+    font-weight: 500;
+    margin-left: var(--spacing-xxs);
+    /* Definir altura fixa para botões de formulário em modais/popovers */
+    height: 40px; /* Alterado para 40px */
+    display: inline-flex;
+    /* Usar flexbox para alinhamento interno se necessário */
+    align-items: center;
+    justify-content: center;
+    /* Centralizar texto/conteúdo */
+    text-transform: none;
+    /* Remover caixa alta */
+}
+
+.form-actions .save-btn {
+    background-color: var(--primary-color-app) !important;
+    color: #fff !important;
+    border: var(--border-width-sm) solid var(--primary-color-app) !important;
+}
+
+.form-actions .cancel-btn {
+    background-color: transparent;
+    /* Sem fundo */
+    color: var(--primary-color-app);
+    /* Cor do texto */
+    border: none;
+    /* Sem borda */
+}
+
+/* Popover de conteúdo */
+.content-popover {
+    display: none;
+    position: absolute;
+    z-index: 1010;
+    background-color: var(--card-bg-app);
+    border: var(--border-width-sm) solid var(--border-color-light);
+    border-radius: var(--border-radius-md);
+    box-shadow: var(--shadow-md);
+    width: 352px;
+    padding: 0;
+    overflow: hidden;
+}
+
+.popover-tabs {
+    display: flex;
+    border-bottom: var(--border-width-sm) solid var(--medium-gray-app);
+    padding: var(--spacing-sm) var(--spacing-sm) 0; /* Removido padding inferior */
+    background-color: var(--card-bg-app);
+}
+
+.popover-tabs button {
+    flex-grow: 1;
+    padding: 0 var(--spacing-sm); /* Remover padding vertical */
+    background: none;
+    border: none;
+    cursor: pointer;
+    font-weight: 500;
+    color: var(--dark-gray-app);
+    position: relative;
+    border-bottom: var(--border-width-md) solid transparent;
+    transition: color 0.2s ease, border-bottom-color 0.2s ease;
+    font-size: var(--font-size-md);
+}
+
+.popover-tabs button.active {
+    color: var(--primary-color-app);
+    border-bottom-color: var(--primary-color-app);
+}
+
+.popover-tabs button:hover:not(.active) {
+    color: var(--text-color-app);
+}
+
+.popover-tab-content {
+    padding: var(--spacing-md);
+    display: none;
+}
+
+.popover-tab-content.active {
+    display: block;
+}
+
+.content-popover .search-container {
+    display: flex;
+    align-items: center;
+    margin-bottom: var(--spacing-md);
+    border: var(--border-width-sm) solid var(--border-color-light);
+    border-radius: var(--border-radius-md);
+    padding: var(--spacing-xxs) var(--spacing-xs);
+    background-color: var(--card-bg-app);
+}
+
+.content-popover .search-container .material-icons,
+.content-popover .search-container .material-symbols-outlined {
+    color: var(--dark-gray-app);
+    font-size: var(--font-size-lg);
+    margin-right: var(--spacing-xxs);
+}
+
+.content-popover input[type=search] {
+    flex-grow: 1;
+    padding: var(--spacing-xxs) 0;
+    border: none;
+    background: none;
+    outline: none;
+    font-size: var(--font-size-md);
+    color: var(--text-color-app);
+}
+
+.content-popover-list {
+    max-height: 180px;
+    overflow-y: auto;
+    margin-bottom: var(--spacing-md);
+    padding-right: var(--spacing-xxs);
+}
+
+.content-popover-list div {
+    padding: var(--spacing-xxs) var(--spacing-sm);
+    display: flex;
+    align-items: center;
+    transition: background-color 0.2s ease;
+    border-radius: var(--border-radius-sm);
+}
+
+.content-popover-list div:hover,
+.content-popover-list input[type="checkbox"]:focus-within + label {
+    background-color: var(--hover-bg-light);
+}
+
+.content-popover-list input[type="checkbox"] {
+    margin-right: var(--spacing-xs);
+    flex-shrink: 0;
+}
+
+.content-popover-list label {
+    margin-left: 0;
+    font-size: var(--font-size-md);
+    color: var(--text-color-app);
+    cursor: pointer;
+    flex-grow: 1;
+    display: flex;
+    align-items: center;
+    padding: var(--spacing-xxs) 0;
+    white-space: nowrap;
+    overflow: hidden;
+    text-overflow: ellipsis;
+}
+
+.content-popover-actions {
+    display: flex;
+    justify-content: flex-end;
+    gap: var(--spacing-xs);
+    padding: var(--spacing-sm); /* Padding existente do footer */
+    border-top: var(--border-width-sm) solid var(--border-color-light);
+    background-color: var(--card-bg-app);
+}
+
+.content-popover-actions .btn-group {
+    display: flex;
+    gap: var(--spacing-xxs);
+}
+
+.content-popover-actions .cancel-btn,
+.content-popover-actions .save-btn {
+    padding: 0 var(--spacing-md); /* Remover padding vertical */
+    border-radius: var(--border-radius-pill);
+    font-size: var(--font-size-md);
+    font-weight: 500;
+    cursor: pointer;
+    border: var(--border-width-sm) solid transparent;
+    transition: background-color 0.2s ease, border-color 0.2s ease, color 0.2s ease;
+    /* Definir altura fixa para botões de ação em popovers */
+    height: 40px; /* Alterado para 40px */
+    display: inline-flex; /* Usar flexbox para alinhamento interno */
+    align-items: center;
+    justify-content: center; /* Centralizar texto/conteúdo */
+}
+
+.content-popover-actions .cancel-btn {
+    background-color: transparent; /* Sem fundo */
+    color: var(--primary-color-app); /* Cor do texto primária */
+    border: none; /* Sem borda */
+}
+
+.content-popover-actions .cancel-btn:hover {
+    background-color: var(--hover-bg-light); /* Fundo sutil no hover */
+    border-color: transparent; /* Garantir que a borda desapareça no hover também */
+}
+
+.content-popover-actions .save-btn {
+    background-color: var(--primary-color-app);
+    color: white;
+    border-color: var(--primary-color-app);
+}
+
+.content-popover-actions .save-btn:hover {
+    background-color: var(--primary-color-dark-app);
+    border-color: var(--primary-color-dark-app);
+}
+
+/* Container de toast */
+#toast-container {
+    position: fixed;
+    bottom: var(--spacing-xl); /* Usando token */
+    right: var(--spacing-xl); /* Usando token */
+    z-index: 2000;
+}
+
+.toast {
+    background-color: var(--toast-bg);
+    color: var(--text-color-light);
+    padding: var(--spacing-sm) var(--spacing-xl);
+    border-radius: var(--border-radius-md);
+    margin-bottom: var(--spacing-xxs);
+    opacity: 0;
+    transition: opacity 0.3s, transform 0.3s;
+    transform: translateY(var(--spacing-xl));
+    font-size: var(--font-size-md);
+    display: flex;
+    align-items: center;
+    gap: var(--spacing-xxs);
+}
+
+.toast.show {
+    opacity: 1;
+    transform: translateY(0);
+}
+
+/* Wrapper para o estado vazio */
+.empty-state-wrapper {
+    padding: var(--spacing-xl) var(--spacing-xxl) var(--spacing-xxl) var(--spacing-xxl);
+    display: flex;
+    flex-direction: column;
+    justify-content: center; /* Centraliza verticalmente */
+    align-items: center; /* Centraliza horizontalmente (opcional, mas comum) */
+    flex-grow: 1; /* Permite que ocupe o espaço disponível */
+}
+
+/* Estado vazio */
+.empty-state {
+    text-align: center;
+    padding: 0; /* Remover padding, pois será aplicado no wrapper */
+    background-color: transparent;
+    border-radius: var(--border-radius-md);
+    box-shadow: none;
+}
+
+.empty-state .material-symbols-outlined {
+    font-size: var(--size-icon-xl);
+    color: var(--primary-color-app);
+    margin-bottom: var(--spacing-sm);
+}
+
+.empty-state h2 {
+    font-size: var(--font-size-xxxl);
+    color: var(--text-color-app);
+    margin-bottom: var(--spacing-xxs);
+    font-weight: 500;
+}
+
+.empty-state p {
+    font-size: var(--spacing-md);
+    color: var(--dark-gray-app);
+    margin-bottom: var(--spacing-xl);
+    line-height: 1.6;
+}
+
+.empty-state-create-btn {
+    display: inline-block;
+    position: relative;
+}
+
+.empty-state-create-btn .create-session-dropdown-btn {
+    /* Remover estilos específicos para usar os do botão base */
+}
+
+.empty-state-create-btn .create-session-dropdown-content {
+    left: auto;
+    transform: none;
+    right: 0;
+}
+
+/* Dropdown de Programação */
+.schedule-popover {
+    display: none;
+    position: absolute;
+    background-color: var(--card-bg-app);
+    min-width: 300px;
+    box-shadow: var(--shadow-md);
+    z-index: 1050;
+    border-radius: var(--border-radius-md);
+    right: 0;
+    margin-top: var(--spacing-xxs);
+    overflow: hidden;
+}
+
+.schedule-popover-content {
+    padding: var(--spacing-md);
+}
+
+.schedule-popover-header {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    margin-bottom: var(--spacing-md);
+}
+
+.schedule-popover-header h3 {
+    margin: 0;
+    font-size: var(--font-size-lg);
+    color: var(--text-color-app);
+}
+
+.schedule-popover-body {
+    margin-bottom: var(--spacing-md);
+}
+
+.schedule-popover-body .form-group {
+    margin-bottom: var(--spacing-sm);
+}
+
+.schedule-popover-body label {
+    display: block;
+    margin-bottom: var(--spacing-xxs);
+    color: var(--text-color-medium);
+    font-size: var(--font-size-sm);
+}
+
+.schedule-popover-body .form-control {
+    width: 100%;
+    padding: var(--spacing-sm);
+    border: var(--border-width-sm) solid var(--border-color-light);
+    border-radius: var(--border-radius-sm);
+    font-size: var(--font-size-md);
+    /* Definir altura fixa para campos de formulário se necessário, mas input[type=date] pode variar */
+    /* height: 40px; */ /* Manter comentado, pois inputs podem variar */
+}
+
+.schedule-popover-footer {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    gap: var(--spacing-sm);
+}
+
+.schedule-popover-footer .btn-group {
+    display: flex;
+    gap: var(--spacing-xxs);
+}
+
+.schedule-popover-footer .btn {
+    padding: 0 var(--spacing-md); /* Remover padding vertical */
+    border-radius: var(--border-radius-pill);
+    font-size: var(--font-size-md);
+    font-weight: 500;
+    cursor: pointer;
+    border: var(--border-width-sm) solid transparent;
+    display: inline-flex;
+    align-items: center;
+    gap: var(--spacing-xs);
+    transition: background-color 0.2s ease, border-color 0.2s ease;
+    /* Definir altura fixa para botões do rodapé do popover de programação */
+    height: 40px; /* Alterado para 40px */
+    justify-content: center; /* Centralizar texto/conteúdo */
+}
+
+.schedule-popover-footer .btn-secondary {
+    background-color: transparent; /* Sem fundo */
+    color: var(--primary-color-app); /* Cor do texto primária */
+    border: none; /* Sem borda */
+}
+
+.schedule-popover-footer .btn-secondary:hover {
+    background-color: var(--hover-bg-light); /* Fundo sutil no hover */
+    border-color: transparent; /* Garantir que a borda desapareça no hover também */
+}
+
+.schedule-popover-footer .btn-primary {
+    background-color: var(--primary-color-app);
+    color: white;
+    border-color: var(--primary-color-app); /* Adicionar borda para consistência */
+}
+
+.schedule-popover-footer .btn-primary:hover {
+    background-color: var(--primary-color-dark-app);
+    border-color: var(--primary-color-dark-app); /* Manter borda no hover */
+}
+
+.schedule-popover-footer .btn:active {
+    transform: translateY(1px);
+}
+
+/* Style for the custom enrollment type filter chip */
+.enrollment-type-filter-chip {
+    display: inline-flex;
+    align-items: center;
+    padding: var(--spacing-xxs) var(--spacing-sm);
+    /* Ajuste de padding para respeitar tokens e alinhar com o texto */
+    padding-right: var(--spacing-xxs);
+    /* Padding menor na direita para o ícone de dropdown */
+    border: var(--border-width-sm) solid var(--border-color-light);
+    border-radius: var(--border-radius-sm);
+    background-color: var(--background-color);
+    /* Pode ajustar a cor de fundo se necessário */
+    color: var(--text-color);
+    font-size: var(--font-size-sm);
+    /* Ajustar tamanho da fonte se necessário */
+    cursor: pointer;
+    transition: background-color 0.2s ease-in-out, border-color 0.2s ease-in-out;
+    user-select: none;
+}
+
+.enrollment-type-filter-chip:hover {
+    background-color: var(--surface-container-hover);
+    /* Cor de hover baseada nos tokens ou design */
+    border-color: var(--border-color);
+}
+
+.enrollment-type-filter-chip .material-icons-outlined,
+.enrollment-type-filter-chip .material-symbols-outlined {
+    font-size: 18px;
+    /* Tamanho do ícone */
+    margin-right: var(--spacing-xxs);
+    /* Espaçamento entre ícone e texto */
+    color: var(--icon-color);
+    /* Cor do ícone */
+}
+
+.enrollment-type-filter-chip .dropdown-arrow {
+    margin-left: var(--spacing-xxs);
+    /* Espaçamento entre texto e seta */
+    margin-right: 0;
+    /* Remover margem direita da seta */
+}
+
+/* Style for the new enrollment type selection popover */
+#enrollment-type-select-popover {
+    position: absolute;
+    z-index: 100;
+    /* Garantir que fique acima de outros elementos */
+    background-color: var(--card-bg-app);
+    /* Fundo branco ou cor de superfície */
+    border: var(--border-width-sm) solid var(--border-color-light);
+    border-radius: var(--border-radius-md);
+    /* Raio da borda maior */
+    box-shadow: var(--elevation-2);
+    /* Sombra */
+    padding: var(--spacing-xxs) 0;
+    /* Padding interno, 0 nas laterais */
+    min-width: 180px;
+    /* Largura mínima */
+    max-width: 240px;
+    /* Largura máxima */
+}
+
+#enrollment-type-select-popover .popover-options-list {
+    display: flex;
+    flex-direction: column;
+}
+
+#enrollment-type-select-popover .popover-options-list button {
+    background: none;
+    border: none;
+    text-align: left;
+    padding: 0 var(--spacing-sm); /* Remover padding vertical */
+    cursor: pointer;
+    color: var(--text-color);
+    font-size: var(--font-size);
+    /* Ajustar tamanho da fonte */
+    white-space: nowrap;
+    overflow: hidden;
+    text-overflow: ellipsis;
+    transition: background-color 0.2s ease-in-out;
+}
+
+#enrollment-type-select-popover .popover-options-list button:hover,
+#enrollment-type-select-popover .popover-options-list button.selected {
+    background-color: var(--surface-container-hover);
+    /* Cor de fundo ao passar o mouse ou selecionado */
+}
+
+/* Optional: Add a slight margin below the chip for better spacing */
+.session-card-description .enrollment-type-filter-chip {
+    margin-bottom: var(--spacing-xxs);
+}
+
+/* Estilo para o botão Admin quando ativo */
+#myCustomSidebarMenu .cs-admin-toggle-link.cs-active {
+    background-color: #936DB3;
+    border: var(--border-width-sm) solid #A889C2;
+    border-radius: var(--border-radius-sm);
+    /* Ajustar padding para se aproximar das dimensões desejadas */
+    /* (112px - 96px) / 2 = 8px de padding lateral */
+    /* (80px - 74px) / 2 = 3px de padding vertical (usando var(--spacing-xxs) 4px como mais próximo) */
+    padding: var(--spacing-xxs) var(--spacing-xs); /* Padding interno 4px vertical, 8px horizontal */
+    width: 96px;
+    margin: 0 auto; /* Centralizar o botão de 96px de largura */
+    color: var(--text-color-light);
+    /* Garantir que os ícones e texto mantenham a cor branca */
+}
+
+#myCustomSidebarMenu .cs-admin-toggle-link.cs-active .material-icons-outlined {
+     color: var(--text-color-light);
+}
+
+/* Component-specific colors - Sidebar */
+/* Adicionar cores específicas do componente aqui para melhor organização */
+
+/* Container da lista de sessões */
+#sessions-list-container {
+    padding: var(--spacing-xl) var(--spacing-xxl) var(--spacing-xxl) var(--spacing-xxl);
+    flex-grow: 1; /* Permitir que ocupe o espaço disponível */
+}
+
+.modal-content .form-actions .save-btn {
+    background-color: var(--primary-color-app) !important;
+    color: #fff !important;
+    border: var(--border-width-sm) solid var(--primary-color-app) !important;
+}
+
+.modal-content #session-to-delete-name span {
+  color: var(--text-color-app) !important;
+  font-weight: normal !important;
+}

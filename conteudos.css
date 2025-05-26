@@ -1,0 +1,283 @@
+/* Arquivo: conteudos.css */
+
+/* Estilos para a área de conteúdo específica da página de Conteúdos */
+.page-conteudos .content-area {
+    padding: var(--spacing-xl) var(--spacing-xxl);
+    /* Ajustar padding conforme necessário */
+    overflow-y: auto; /* Adicionar scroll se o conteúdo exceder a altura */
+}
+
+/* Tokens para cores dos chips */
+:root {
+    --chip-active-bg: #E8E2EA;
+    --chip-border-color: #4F378A;
+    --chip-border-color-normal: #79747E;
+}
+
+/* Estilos para o Banner */
+.conteudos-banner {
+    width: 100%;
+    /* Usar padding-top com porcentagem para manter o aspect ratio 3:1 (altura = 1/3 da largura) */
+    padding-top: 33.33%; /* 1 / 3 = 0.3333... */
+    position: relative;
+    background-color: #ccc; /* Cor de fundo placeholder */
+    margin-bottom: var(--spacing-xl); /* Espaço abaixo do banner */
+    border-radius: var(--border-radius-md); /* Bordas arredondadas */
+    overflow: hidden; /* Esconder partes da imagem que excedam o container */
+    background-size: cover;
+    background-position: center;
+    /* Substitua pela sua imagem de banner */
+    background-image: url('https://images.pexels.com/photos/31837575/pexels-photo-31837575/free-photo-of-paisagem-de-savana-em-zaria-nigeria.jpeg?auto=compress&cs=tinysrgb&w=1260&h=750&dpr=1');
+    /* Removido display flex, align-items e padding, movidos para .conteudos-banner-content */
+}
+
+.conteudos-banner-content {
+    position: absolute;
+    top: 0;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    display: flex;
+    align-items: flex-end; /* Alinhar conteúdo na parte inferior */
+    padding: var(--spacing-lg); /* Espaçamento interno para o texto do banner */
+    box-sizing: border-box;
+}
+
+.conteudos-banner h2 {
+    color: var(--text-color-light); /* Texto branco */
+    font-size: var(--font-size-xxl); /* Tamanho de fonte maior */
+    margin: 0;
+    text-shadow: 1px 1px 3px rgba(0, 0, 0, 0.5); /* Sombra para melhor leitura */
+}
+
+/* Estilos para os Chips de Navegação */
+.conteudos-nav-chips {
+    display: flex;
+    gap: var(--spacing-xs); /* Espaço entre os chips (reduzido) */
+    margin-bottom: var(--spacing-xl); /* Espaço abaixo dos chips */
+    flex-wrap: wrap; /* Quebrar linha em telas menores */
+}
+
+.conteudos-nav-chips .chip {
+    /* Estilos de chip Material Design 3 */
+    height: 32px; /* Altura fixa de 32px */
+    padding: 6px 16px 6px 8px; /* Padding: top 6px, right 16px, bottom 6px, left 8px */
+    border-radius: var(--border-radius-md); /* Borda arredondada: 8px */
+    font-size: var(--font-size-md); /* Tamanho da fonte: 14-16px */
+    display: inline-flex; /* Usar inline-flex para alinhar conteúdo */
+    align-items: center; /* Alinhar verticalmente */
+    justify-content: center; /* Centralizar horizontalmente (opcional, depende do design) */
+    cursor: pointer;
+    transition: background-color 0.2s ease, border-color 0.2s ease, color 0.2s ease;
+    background-color: transparent; /* Default outlined */
+    border: 1px solid var(--chip-border-color-normal); /* Borda cinza para estado normal */
+    color: var(--text-color-app); /* Cor do texto para outlined */
+}
+
+.conteudos-nav-chips .chip:hover {
+    background-color: var(--hover-bg-medium); /* Cor de hover para outlined */
+    border-color: var(--chip-border-color); /* Borda roxa no hover */
+}
+
+.conteudos-nav-chips .chip.active {
+    background-color: var(--chip-active-bg); /* Usando o token para o fundo do chip ativo */
+    color: var(--text-color-app); /* Mantendo a cor do texto */
+    border-color: var(--chip-border-color); /* Borda roxa quando ativo */
+}
+
+.conteudos-nav-chips .chip .material-symbols-outlined {
+    font-size: var(--size-icon-md);
+    margin-right: var(--spacing-xxs); /* Espaço entre ícone e texto */
+    /* Garantir alinhamento vertical, já configurado pelo align-items no pai */
+}
+
+/* Estilos para o container das Seções */
+.conteudos-sections-container {
+    display: flex;
+    flex-direction: column;
+    gap: var(--spacing-xxl); /* Espaço entre as seções */
+}
+
+/* Estilos para uma Seção Horizontal */
+.conteudo-section {
+    margin-bottom: var(--spacing-xl); /* Espaço abaixo de cada seção */
+}
+
+.conteudo-section-header {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    margin-bottom: var(--spacing-md); /* Espaço abaixo do cabeçalho da seção */
+}
+
+.conteudo-section-header .section-info {
+    display: flex;
+    flex-direction: column;
+    /* Ajustar gap e margens conforme necessidade do design */
+}
+
+.conteudo-section-header .section-info h3 {
+    font-size: var(--font-size-xl); /* Tamanho do título da seção */
+    margin: 0 0 var(--spacing-xxs) 0; /* Margem abaixo do título */
+    color: var(--text-color-app);
+    font-weight: 500; /* Geralmente títulos tem peso médio */
+}
+
+.conteudo-section-header .section-info p {
+    font-size: var(--font-size-sm); /* Tamanho da descrição */
+    color: var(--text-color-medium); /* Cor para texto secundário */
+    margin: 0;
+}
+
+.conteudo-section-header .section-actions {
+    display: flex;
+    align-items: center;
+    gap: var(--spacing-sm); /* Espaço entre os botões de ação */
+}
+
+.conteudo-section-header .section-actions .view-all-link {
+    text-decoration: none;
+    color: var(--primary-color-app); /* Cor primária para o link Ver tudo */
+    font-size: var(--font-size-sm);
+    font-weight: 500;
+    opacity: 0; /* Esconder por padrão */
+    transition: opacity 0.2s ease; /* Transição suave */
+}
+
+.conteudo-section-header:hover .section-actions .view-all-link {
+    opacity: 1; /* Mostrar no hover do header da seção */
+}
+
+.conteudo-section-header .section-actions .nav-arrow-button {
+    background: none;
+    border: 1px solid var(--medium-gray-app);
+    border-radius: 50%; /* Botões redondos */
+    width: 32px; /* Tamanho fixo */
+    height: 32px; /* Tamanho fixo */
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    cursor: pointer;
+    transition: background-color 0.2s ease;
+}
+
+.conteudo-section-header .section-actions .nav-arrow-button:hover {
+     background-color: var(--hover-bg-medium);
+}
+
+.conteudo-section-header .section-actions .nav-arrow-button .material-symbols-outlined {
+    font-size: var(--size-icon-md);
+    color: var(--text-color-app);
+}
+
+.horizontal-scroll-section {
+    display: flex;
+    overflow-x: auto; /* Habilitar scroll horizontal */
+    gap: var(--spacing-md); /* Espaço entre os cards */
+    padding-bottom: var(--spacing-md); /* Padding para não cortar a sombra/scroll */
+    /* Esconder a barra de scroll para webkit browsers (Chrome, Safari) */
+    &::-webkit-scrollbar {
+        display: none;
+    }
+    /* Esconder a barra de scroll para Firefox */
+    scrollbar-width: none;
+    /* Esconder a barra de scroll para IE e Edge */
+    -ms-overflow-style: none;
+}
+
+/* Estilos para o Card de Curso (Placeholder) */
+.course-card-placeholder {
+    flex: 0 0 auto; /* Não crescer, não encolher */
+    /* Ajustar a largura para mostrar aproximadamente 5 cards por linha, considerando o gap */
+    /* Largura: (100% - (Número de gaps * Largura do gap)) / Número de cards por linha */
+    /* Assumindo 4 gaps de var(--spacing-md) = 16px para 5 cards */
+    width: calc((100% - (4 * var(--spacing-md))) / 5);
+    /* Manter aspect ratio 9:16 */
+    aspect-ratio: 9 / 16;
+    /* Removido height: calc(...) pois aspect-ratio define a altura com base na largura */
+    background-color: var(--card-bg-app); /* Fundo branco */
+    border-radius: var(--border-radius-md); /* Bordas arredondadas */
+    box-shadow: var(--shadow-sm); /* Sombra suave */
+    overflow: hidden;
+    display: flex;
+    flex-direction: column; /* Conteúdo em coluna */
+    justify-content: flex-end; /* Alinhar conteúdo ao fundo */
+    color: white; /* Cor do texto sobre a imagem */
+    text-shadow: 1px 1px 3px rgba(0, 0, 0, 0.5); /* Sombra para o texto */
+    position: relative; /* Para o overlay e conteúdo interno */
+}
+
+/* Adiciona um degradê na parte inferior dos cards para melhorar o contraste do texto */
+.course-card-placeholder::after {
+    content: '';
+    position: absolute;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    height: 50%; /* Altura do degradê (ajuste conforme necessário) */
+    background: linear-gradient(to top, rgba(0, 0, 0, 0.7) 0%, rgba(0, 0, 0, 0) 100%); /* Degradê de preto semi-transparente para transparente */
+    z-index: 1; /* Colocar o degradê acima da imagem de fundo (z-index: 0 no ::before) */
+}
+
+/* Estilos para o conteúdo dentro do card (imagem, título, etc.) */
+.course-card-placeholder::before { /* Usar ::before para a imagem de fundo/overlay */
+    content: '';
+    display: block;
+    position: absolute;
+    top: 0;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    background-image: attr(data-bg-image, url); /* A imagem será definida via JS */
+    background-size: cover;
+    background-position: center;
+    z-index: 0;
+}
+
+.course-card-placeholder .card-content {
+    position: relative;
+    z-index: 1; /* Conteúdo sobre o overlay */
+    padding: var(--spacing-sm);
+    display: flex;
+    flex-direction: column;
+}
+
+.course-card-placeholder h4 {
+    font-size: var(--font-size-md);
+    margin: 0 0 var(--spacing-xxs) 0;
+}
+
+.course-card-placeholder p {
+    font-size: var(--font-size-xs);
+    margin: 0;
+}
+
+/* Exemplo de como usar no HTML: */
+/*
+<div class="content-area">
+    <div class="conteudos-banner"><h2>Título do Banner</h2></div>
+    <div class="conteudos-nav-chips">
+        <button class="chip active"><span class="material-symbols-outlined">star</span>Destaques</button>
+        <button class="chip"><span class="material-symbols-outlined">conversion_path</span>Trilhas</button>
+        <button class="chip"><span class="material-symbols-outlined">rocket_launch</span>Cursos</button>
+        <button class="chip"><span class="material-symbols-outlined">calendar_month</span>Eventos</button>
+    </div>
+    <div class="conteudos-sections-container">
+        <div class="conteudo-section">
+            <div class="conteudo-section-header">
+                <h3>Cursos que você está matriculado</h3>
+                <div class="section-actions">
+                    <a href="#" class="view-all-link">Ver tudo</a>
+                    <button class="nav-arrow-button"><span class="material-symbols-outlined">arrow_back_ios</span></button>
+                    <button class="nav-arrow-button"><span class="material-symbols-outlined">arrow_forward_ios</span></button>
+                </div>
+            </div>
+            <div class="horizontal-scroll-section">
+                <div class="course-card-placeholder">Card 1 (9:16)</div>
+                <div class="course-card-placeholder">Card 2 (9:16)</div>
+                <div class="course-card-placeholder">Card 3 (9:16)</div>
+                </div>
+        </div>
+        </div>
+</div>
+*/ 
